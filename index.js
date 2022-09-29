@@ -1,11 +1,11 @@
 // Title: "Uptime Monitoring Application"
-// Description: 'A RESTFull API to monitor up or down time of user desined links'
+// Description: 'A RESTFull API to monitor up or down time of user designed links'
 // Author: 'Iqbal Ahmed'
 // Date: '29 September 2022'
 
 // Dependencies
 const http = require("http");
-const url = require("url");
+const { handleReqRes } = require("./helper/handleReqRes");
 
 // app object -  module scaffolding
 const app = {};
@@ -24,17 +24,7 @@ app.createServer = () => {
 };
 
 //handle Request Response
-app.handleReqRes = (req, res) => {
-  // request handle
-  const parsedUrl = url.parse(req.url, true);
-  console.log(parsedUrl);
-  const path = parsedUrl.pathname;
-  const trimmedPath = path.replace(/^\/+|\/+$/g, '')
-  console.log(trimmedPath);
-
-  // response handle
-  res.end("Hello Programmers.Happy Coding!!");
-};
+app.handleReqRes = handleReqRes;
 
 //start the server
 app.createServer();
