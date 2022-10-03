@@ -13,12 +13,12 @@ handler.handleReqRes = (req, res) => {
   const parsedUrl = url.parse(req.url, true);
   console.log(parsedUrl);
   const path = parsedUrl.pathname;
-  const trimmedPath = path.replace(/^\/+|\/+$/g, "");
+  const trimmedPath = path.replace(/^\/+|\/+$/g, '');
   const method = req.method.toLowerCase();
   const queryStringObject = parsedUrl.query;
   const headersObject = req.headers;
   console.log("method: ", method);
-  console.log("trimmedPath: ", trimmedPath);
+  console.log("trimmedPath:", trimmedPath);
   console.log("headersObject: ", headersObject);
   console.log("queryStringObject: ", queryStringObject);
 
@@ -41,7 +41,7 @@ handler.handleReqRes = (req, res) => {
   choosenHandler(requestProperties, (statusCode, payload) => {
     statusCode = typeof(statusCode) === "number" ? statusCode : 500;
     payload = typeof(payload) === "object" ? payload : {};
-
+    console.log(statusCode);
     const payloadString = JSON.stringify(payload);
     
     res.writeHead(statusCode);
@@ -57,7 +57,7 @@ handler.handleReqRes = (req, res) => {
     console.log("Real Data: ", realData);
 
     // response handle
-    res.end("Hello Programmers.Happy Coding!!");
+    res.end("Hello Programmers.Happy Coding!");
   });
 };
 

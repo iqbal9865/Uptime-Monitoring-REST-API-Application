@@ -6,4 +6,4 @@ const routes = {
     sample: sampleHandler,
 }
 
-module.export = routes;
+module.exports = routes;
